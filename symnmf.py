@@ -60,7 +60,7 @@ def validate_arguments(args):
 def squared_frobenius_norm(matrix):
     return np.sum(matrix ** 2)
 
-def sym_nmf(data_points, k):
+def symnmf(data_points, k):
     def initialize_H(W, k):
         m = np.mean(W)
         upper = 2 * np.sqrt(m / k)
@@ -95,6 +95,12 @@ def sym_nmf(data_points, k):
     
     return H
 
+import numpy as np
+
+def derive_clustering(H):
+    labels = np.argmax(H, axis=1)
+    return labels
+
 def print_matrix(matrix):
     for row in matrix:
         print(",".join(f"{value:.4f}" for value in row))
@@ -114,7 +120,7 @@ def main():
         W = symnmf_capi.norm(data_list)
         print_matrix(W)
     elif goal == "symnmf":
-        H = sym_nmf(data_points, k)
+        H = symnmf(data_points, k)
         print_matrix(H)
 
 if __name__ == '__main__':
