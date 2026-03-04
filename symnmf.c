@@ -90,6 +90,11 @@ double **generate_normalised_adjacency_matrix(double **A, unsigned int num_of_po
     return W;
 }
 
+/**
+ * @brief Print an error message to stderr.
+ * 
+ * @return Always returns 1 for convenience in main().
+ */
 int throw_error() {
     fprintf(stderr,"An Error Has Occurred\n");
     return 1;
@@ -117,6 +122,18 @@ double **norm(double **matrix, unsigned int dim, unsigned int num_of_points) {
     return W;
 }
 
+/**
+ * @brief Main function to read points from a file and compute matrices.
+ *
+ * Usage: ./project <mode> <file>
+ *  - mode "sym": print similarity matrix
+ *  - mode "ddg": print degree matrix
+ *  - mode "norm": print normalized adjacency matrix
+ *
+ * @param argc Argument count.
+ * @param argv Argument values.
+ * @return 0 on success, 1 on error.
+ */
 int main(int argc, char *argv[]) {
     unsigned int dim;
     FILE *ifp;

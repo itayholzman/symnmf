@@ -70,6 +70,13 @@ void free_points_list(points_list *plist) {
     free(plist);
 }
 
+/**
+ * @brief Parse a line of text into a point coordinates list.
+ * 
+ * @param line Input string containing comma-separated coordinate values.
+ * @param expected_dim Expected number of coordinates (0 to ignore).
+ * @return Pointer to a point_coordinates_list, or NULL on error.
+ */
 point_coordinates_list *parse_line(const char *line, unsigned int expected_dim) {
     const char *ptr = line;
     unsigned int dim_count = 0;
