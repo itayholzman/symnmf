@@ -193,11 +193,22 @@ def derive_clustering(H):
 
 
 def print_matrix(matrix):
+    """
+    Print a 2D matrix with 4 decimal places, comma-separated.
+
+    Parameters
+    ----------
+    matrix : np.ndarray
+        Matrix to print.
+    """
     for row in matrix:
         print(",".join(f"{value:.4f}" for value in row))
 
 
 def main():
+    """
+    Main function: parse arguments, run requested goal, and print results.
+    """
     k, goal, data_points = validate_arguments(sys.argv)
 
     data_list = data_points.tolist()
